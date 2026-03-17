@@ -158,6 +158,15 @@ def home():
         }
     })
 
+@app.route('/app')
+def serve_app():
+    """Serve the trading app"""
+    return '''
+    <!DOCTYPE html>
+    <html>... [I'll provide the full HTML] ...
+    </html>
+    '''
+
 if __name__ == '__main__':
     print("\n" + "="*60)
     print("  NSE DATA SERVER STARTING")
