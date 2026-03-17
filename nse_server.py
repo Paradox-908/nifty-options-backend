@@ -7,13 +7,12 @@ from datetime import datetime
 app = Flask(__name__)
 
 # CRITICAL: Enable CORS with specific settings for Claude.ai
-CORS(app, resources={
-    r"/api/*": {
-        "origins": "*",  # Allow all origins (Claude.ai, localhost, etc.)
-        "methods": ["GET", "POST", "OPTIONS"],
-        "allow_headers": ["Content-Type"]
-    }
-})
+CORS(app, 
+     resources={r"/api/*": {"origins": "*"}},
+     supports_credentials=False,
+     allow_headers=["Content-Type", "Authorization"],
+     methods=["GET", "POST", "OPTIONS"],
+     expose_headers=["Content-Type"])
 
 # NSE headers to mimic browser
 NSE_HEADERS = {
